@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    {% block title %}
+        {% if title %}
+            <title>Flask - {{ title }}</title>
+            {% else %}
+            <title>Flask Blog</title>
+        {% endif %}
+    {% endblock title %}
+
+</head>
+<body>
+
+<div class="wrapper">
+
+{% block menu %}
+<header class="header">
+    <div class="logo">
+        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="logo">
+    </div>
+    <ul class="main_menu">
+        <li><a href="#"><p>Главная</p></a></li>
+        <li><a href="#"><p>Блог</p></a></li>
+        <li><a href="#"><p>Регистрация</p></a></li>
+        <li><a href="#"><p>Логин</p></a></li>
+        <li><a href="#"><p>Аккаунт</p></a></li>
+        <li><a href="#"><p>Создать</p></a></li>
+        <li><a href="#"><p>Выход</p></a></li>
+    </ul>
+    
+</header>
+{% endblock menu %}
+
+{% block content %}
+{% endblock content %}
+
+{% block main_page %}
+    <div class="content">
+
+    </div>
+{% endblock main_page %}
+
+{% block footer %}
+    <div class="footer">Все права защищены!<br>
+        &#169; Терехов Михаил 2022
+    </div>
+{% endblock footer %}
+
+</div>
+</body>
+</html>
