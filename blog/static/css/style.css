@@ -1,0 +1,228 @@
+/* Обнуление */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+html,
+body,
+.wrapper {
+  height: 100%;
+  font-family:monospace;
+
+}
+
+
+/* Пустой блок, используется временно */
+.empty_block{
+    height:50px;
+}
+
+
+/* HEADER */
+.header {
+    height: 160px;
+    background-image: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
+    padding-right: 50px;
+}
+
+
+.main_menu li {
+    display: flex;
+    width: 150px;
+    justify-content: center;
+    border-radius: 100px;
+    margin-top: 6%;
+    box-shadow: 10px 10px 10px grey;
+    font-size: 20px;
+    height: 30px;
+
+}
+.main_menu a{
+text-decoration: none;
+color: mediumaquamarine;
+}
+
+
+.header li:hover {
+    transition-duration: 0.5s;
+    box-shadow: 4px 5px 50px grey;
+}
+
+
+/* LOGO */
+.logo img {
+    float: left;
+    margin-left: 100px;
+    background-image: url("/img/ioA6tYaKRbU.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 200px;
+    box-shadow: 0px 0px 0px lightgreen;
+}
+
+
+/* MAIN_MENU */
+.main_menu{
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+/* MAIN_PAGE */
+.wrapper{
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.cascade_block {
+    display: flex;
+    margin: 0px auto 0px;
+    width: 80%;
+    box-shadow: -5px 15px 10px skyblue;
+    border-radius: 200px;
+}
+
+
+.cascade_menu {
+    font-size: 35px;
+    margin: 0 auto;
+    padding: 0px 0;
+    text-align: right;
+}
+
+
+.info_name {
+    box-shadow: -5px 15px 10px skyblue;
+    border-radius: 200px;
+    padding: 10px 20px;
+    letter-spacing: 3px;
+}
+
+
+
+.cascade_block_li {
+    width: 100%;
+    font-weight: 600;
+    color: dodgerblue;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0px 0px 0px skyblue;
+    border-radius: 200px;
+
+}
+
+.cascade_block_li .checkmark {
+    margin-bottom: 10px;
+    font-style: normal;
+    box-shadow: 5px 3px 10px grey;
+    font-size: 25px;
+    padding: 5px;
+    border-radius: 200px;
+    letter-spacing: 2px;
+    list-style: none;
+}
+
+
+ul .checkmark:before {
+    content: "\2713\0020";
+    color: forestgreen;
+}
+
+
+.checkmark a {
+    text-decoration: none;
+    color: mediumaquamarine;
+}
+
+
+.checkmark:hover {
+    transition-duration: 0.1s;
+    box-shadow: 0px 12px 10px orange;
+}
+
+
+/* BLOCK_CONTENT */
+.content{
+    width: 50%;
+    margin: 0 auto;
+    flex: 1 0 auto;
+
+}
+
+
+.update_info{
+    text-align: center;
+    width: 300px;
+}
+
+
+/* LOGIN_FORM */
+.register_form{
+    height: 200px;
+    margin: 0 auto;
+    margin: 100px 0;
+    align-items: center;
+    text-align: center;
+}
+
+
+.legend {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+
+/* FOOTER */
+.footer {
+    display: flex;
+    height: 100px;
+    background-color: antiquewhite;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    flex: 0 0 auto;
+}
+
+
+/* FORM and BUTTON */
+
+.form-post-title{
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+
+input[placeholder]{
+    padding-left: 10px;
+    font-size: 16px;
+}
+
+
+.btn_sign_in{
+    width: 120px;
+    height: 30px;
+    background-color: white;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+
+.form-group_button{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text-muted {
+    font-size: 15px;
+    color: red;
+    margin-right: 10px;
+}
+

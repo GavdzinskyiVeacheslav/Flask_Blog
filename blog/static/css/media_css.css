@@ -1,0 +1,42 @@
+@media screen and (min-width:1601px) and (max-width:1920px) {
+.wrap{
+    color: red;
+ }
+
+}
+
+@media screen and (min-width:1200px) and (max-width:1600px) {
+    .header{
+    height: 130px;
+    }
+    .header li {
+    width: 130px;
+    margin-top: 4%;
+    font-size: 20px;
+}
+    .logo img {
+
+    width: 180px;
+}
+    .empty_block{
+    height:35px;
+    }
+    .description{
+    font-size: 30px;
+    }
+    .checkmark li{
+    font-size: 19px;}
+    .form-control-sm{
+    font-size: 15px;
+    }
+    .article-title{
+    font-size: 20px;
+    }
+    .article-content{
+    font-size: 15px;
+    }
+    .btn{
+    padding: 0px 6px;
+    font-size: 16px;}
+}
+
