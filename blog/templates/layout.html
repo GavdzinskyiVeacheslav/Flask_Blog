@@ -11,11 +11,7 @@
 
   {% block title %}
 
-      {% if title %}
-        <title>Flask - {{ title }}</title>
-      {% else %}
-        <title>Flask Blog</title>
-      {% endif %}
+    <title>{{ title if title else 'Flask Blog' }}</title>
 
   {% endblock title %}
 
@@ -49,10 +45,24 @@
 
 
     <div class="content">
-
-            {% block content %}
-            {% endblock content %}
-
+        <div class="empty_block"></div>
+        <main role="main" class="#">
+            <div class="row">
+                <div class="col-md-12">
+                    {% with messages = get_flashed_messages(with_categories=True) %}
+                    {% if messages %}
+                    {% for category, message in messages %}
+                    <div style="font-size: 16px;" class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                    {% block content %}
+                    {% endblock content %}
+                </div>
+            </div>
+        </main>
     </div>
 
 

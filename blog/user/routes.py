@@ -44,12 +44,10 @@ def login():
             login_user(user, remember=form.remember.data)
             next_page = request.args.get('next')
             flash(f'Вы вошли как пользователь {current_user.username}', 'info')
-            return redirect(next_page) if next_page else redirect(url_for('user.account'))
+            return redirect(next_page) if next_page else redirect(url_for('users.account'))
         else:
             flash('Войти не удалось. Пожалуйста, проверьте электронную почту или пароль', 'danger')
     return render_template('login.html', form=form, title='Логин', legend='Войти')
-
-
 
 
 @users.route('/account', methods=['GET', 'POST'])

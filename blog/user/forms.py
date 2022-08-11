@@ -24,6 +24,12 @@ class RegistrationForm(FlaskForm):
             flash('Этот емайл уже занят. Пожалуйста, введите другой', 'danger')
             raise ValidationError('That email is taken. Please choose a different one')
 
+    def validate_confirm_password(self, password):
+        form = RegistrationForm()
+        if form.password.data != form.confirm_password.data:
+            flash('Пароли не совпадают!', 'danger')
+            raise ValidationError('Passwords do not match!')
+
 
 class LoginForm(FlaskForm):
     email = StringField('Емайл', validators=[DataRequired(), Email()])
