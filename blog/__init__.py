@@ -24,8 +24,10 @@ def create_app():
     migrate.init_app(app, db, render_as_batch=True)
     from blog.main.routes import main
     from blog.user.routes import users
+    from blog.post.routes import post
 
     app.register_blueprint(main)
     app.register_blueprint(users)
+    app.register_blueprint(post)
 
     return app
