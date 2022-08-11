@@ -85,12 +85,13 @@ body,
     width: 80%;
     box-shadow: -5px 15px 10px skyblue;
     border-radius: 200px;
+    margin-bottom: 50px;
 }
 
 
 .cascade_menu {
     font-size: 35px;
-    margin: 0 auto;
+    margin: 0px auto;
     padding: 0px 0;
     text-align: right;
 }

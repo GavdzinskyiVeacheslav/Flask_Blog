@@ -29,15 +29,17 @@
     </div>
 
     <ul class="main_menu">
-
-            <li><a href="{{ url_for('main.home') }}">Главная</a></li>
-            <li><a href="{{ url_for('users.register') }}">Регистрация</a></li>
-            <li><a href="{{ url_for('users.login') }}">Войти</a></li>
-            <li><a href="{{ url_for('main.blog') }}">Блог</a></li>
-            <li><a href="{{ url_for('users.account') }}">Аккаунт</a></li>
-            <li><a href="#">Создать</a></li>
-            <li><a href="{{ url_for('users.logout') }}">Выход</a></li>
-
+            {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('main.home') }}">Главная</a></li>
+                <li><a href="{{ url_for('main.blog') }}">Блог</a></li>
+                <li><a href="#">Создать</a></li>
+                <li><a href="{{ url_for('users.account') }}">Аккаунт</a></li>
+                <li><a href="{{ url_for('users.logout') }}">Выход</a></li>
+            {% else %}
+                <li><a href="{{ url_for('main.home') }}">Главная</a></li>
+                <li><a href="{{ url_for('users.register') }}">Регистрация</a></li>
+                <li><a href="{{ url_for('users.login') }}">Войти</a></li>
+            {% endif %}
     </ul>
 
 </header>

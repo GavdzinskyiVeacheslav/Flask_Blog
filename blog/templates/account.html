@@ -1,7 +1,19 @@
 {% extends 'layout.html' %}
 
-
 {% block content %}
+
+<style>
+    * {
+    text-align: center;
+    }
+</style>
+
+<h3 style="color: blue; margin-top: 50px;">Аккаунт пользователя {{ current_user.username }}</h3>
+<h4>{{ current_user.email }}</h4>
+<h4>{{ current_user.password }}</h4>
+<br>
+<h4>Последний раз вы заходили: {{ current_user.last_seen }}</h4>
+
 
 {% endblock content %}
 

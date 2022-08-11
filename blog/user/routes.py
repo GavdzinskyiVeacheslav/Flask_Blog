@@ -57,6 +57,7 @@ def account():
 
 
 @users.route('/logout')
+@login_required
 def logout():
     current_user.last_seen = datetime.now()
     db.session.commit()
