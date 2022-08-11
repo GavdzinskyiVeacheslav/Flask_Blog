@@ -2,13 +2,13 @@ import os
 import shutil
 from datetime import datetime
 
-from flask import Blueprint, render_template, flash, url_for
-from flask_login import current_user, logout_user, login_required
+from flask import Blueprint, render_template, flash, url_for, request
+from flask_login import current_user, logout_user, login_required, login_user
 from werkzeug.utils import redirect
 
 from blog import bcrypt, db
 from blog.models import User
-from blog.user.forms import RegistrationForm
+from blog.user.forms import RegistrationForm, LoginForm
 
 users = Blueprint('users', __name__)
 
@@ -35,7 +35,21 @@ def register():
 
 @users.route('/login', methods=['GET', 'POST'])
 def login():
-    return 'hello'
+    if current_user.is_authenticated:
+        return redirect(url_for('main.blog'))
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user and bcrypt.check_password_hash(user.password, form.password.data):
+            login_user(user, remember=form.remember.data)
+            next_page = request.args.get('next')
+            flash(f'Вы вошли как пользователь {current_user.username}', 'info')
+            return redirect(next_page) if next_page else redirect(url_for('user.account'))
+        else:
+            flash('Войти не удалось. Пожалуйста, проверьте электронную почту или пароль', 'danger')
+    return render_template('login.html', form=form, title='Логин', legend='Войти')
+
+
 
 
 @users.route('/account', methods=['GET', 'POST'])
