@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="login_form">
+    <form action="" class="form_sign_in" enctype="multipart/form-data" method="POST">
+        {{ form.hidden_tag() }}
+        <legend class="legend">{{ legend }}</legend>
+        <div class="invalid-feedback">
+            {% for errors in form.title.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+        {{ form.title(class='form-post-title', placeholder='Заголовок') }}
+        {{ form.context(class='form-post-textarea', placeholder='Текст статьи') }}
+        {{ form.picture }}
+        {{ form.submit(class='btn_new_post') }}
+    </form>
+</div>
+
+{% endblock content %}
