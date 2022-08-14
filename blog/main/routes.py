@@ -1,5 +1,7 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, url_for, request
+from flask_login import login_required, current_user
 
+from blog.models import Post
 
 main = Blueprint('main', __name__)
 
@@ -9,9 +11,32 @@ def home():
     return render_template('index.html', title='Главная')
 
 
-@main.route('/blog')
+@main.route('/blog', methods=['POST', 'GET'])
+@login_required
 def blog():
-    return render_template('blog.html', title='Блог')
+    post = Post.query.get(current_user.id)
+    if post:
+        page = request.args.get('page', 1, type=int)
+        posts = Post.query.order_by(Post.date_posted.desc()).paginate(page=page, per_page=2)
+        image_file = url_for(
+            'static',
+            filename=f'profile_pics/{current_user.username}/{post.image_post}'
+        )
+
+        return render_template(
+            'blog.html',
+            title='Блог',
+            posts=posts,
+            image_file=image_file,
+        )
+
+    else:
+
+        return render_template(
+            'blog.html',
+            title='Блог',
+            nothing='Постов пока нет',
+        )
 
 
 @main.route('/html_page')

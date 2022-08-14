@@ -7,10 +7,10 @@ from blog.models import Post
 from blog.post.forms import PostForm
 from blog.post.utils import save_picture_post
 
-post = Blueprint('post', __name__)
+posts = Blueprint('post', __name__)
 
 
-@post.route('/post/new', methods=['GET', 'POST'])
+@posts.route('/post/new', methods=['GET', 'POST'])
 @login_required
 def new_post():
     form = PostForm()
@@ -39,4 +39,19 @@ def new_post():
         image_file=image_file,
     )
 
+
+@posts.route('/post/<int:post_id>')
+@login_required
+def post(post_id):
+    post = Post.query.get_or_404(post_id)
+    image_file = url_for(
+        'static',
+        filename=f'profile_pics/' + post.author.username + '/post_image/' + post.image_post
+    )
+    return render_template(
+        'post.html',
+        title=post.title,
+        post=post,
+        image_file=image_file
+    )
 
