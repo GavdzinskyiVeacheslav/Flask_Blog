@@ -15,7 +15,7 @@ def save_picture_post(form_picture):
         'static',
         'profile_pics',
         current_user.username,
-        'post_images'
+        'post_image'
     )
     if not os.path.exists(full_path):
         os.mkdir(full_path)

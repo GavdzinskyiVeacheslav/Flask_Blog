@@ -20,7 +20,7 @@ def blog():
         posts = Post.query.order_by(Post.date_posted.desc()).paginate(page=page, per_page=2)
         image_file = url_for(
             'static',
-            filename=f'profile_pics/{current_user.username}/{post.image_post}'
+            filename=f'profile_pics/{current_user.username}/{post.image_post}',
         )
 
         return render_template(

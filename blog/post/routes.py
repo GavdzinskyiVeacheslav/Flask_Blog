@@ -29,7 +29,7 @@ def new_post():
         return redirect(url_for('main.blog'))
     image_file = url_for(
         'static',
-        filename=f'profile_pics/' + current_user.username + '/post_images/' + current_user.image_file,
+        filename=f'profile_pics/' + current_user.username + '/post_image/' + current_user.image_file,
     )
     return render_template(
         'create_post.html',

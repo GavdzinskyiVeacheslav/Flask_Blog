@@ -8,14 +8,14 @@
     {% for post in posts.items %}
     <div class="post">
         <img src="{{ url_for('static', filename='profile_pics/' + post.author.username + '/' + post.author.image_file) }}"
-             alt="" class="mr-3 mt-3 rounded-circle" style="width:40px;">
-        <a class="mr-2" href="{{ url_for('user.user_posts', username=post.author.username) }}">
+             alt="" class="mr-3 mt-3 rounded-circle" style="height: 90px; width: 100px;">
+        <a class="mr-2" href="{{ url_for('users.user_posts', username=post.author.username) }}">
             {{ post.author.username }}</a>
         <small class="text-muted">{{ post.date_posted.strftime('%d.%m.%Y-%H') }}</small>
 
         <h2><a class="article-title" href="{{ url_for('post.post', post_id=post.id) }}">{{ post.title }}</a></h2>
 
-        <p class="article-content">{{ post.content }}</p>
+        <p class="article-content">{{ post.context }}</p>
         <img src="{{ post.image_post }}" alt="">
     </div>
     {% endfor %}
